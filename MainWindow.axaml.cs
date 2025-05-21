@@ -3,11 +3,9 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using Avalonia.Controls;
-using Avalonia.Controls.Shapes;
 using Avalonia.Interactivity;
 using Avalonia.Media.Imaging;
 using Voroncov1.Models;
-using System.IO;
 using Path = System.IO.Path;
 
 namespace Voroncov1;
@@ -108,11 +106,8 @@ public partial class MainWindow : Window
         foreach (var item in paginatedList)
         {
             agents.Add(item);
-            // Console.WriteLine(item.Id);
         }
         
-        // PreviousButton.IsEnabled = currentPage > 1;
-        // NextButton.IsEnabled = currentPage < totalPages;
     }
     
     private void NextPage(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
@@ -236,7 +231,6 @@ public partial class MainWindow : Window
                 Console.WriteLine(presenter.PhotoPath);
 
                 dataSourceAgents.Add(presenter);
-                // DisplayAgents();
         }
     }
 
