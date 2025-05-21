@@ -1,0 +1,29 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="Voroncov1.AddAgentWindow"
+        Title="AddAgentWindow">
+    <StackPanel Spacing="5" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <TextBox Width="200" x:Name="TitleTextBox" Watermark="Title"/>
+        <ComboBox VerticalAlignment="Center" Width="100" x:Name="TypeAgentFilterCombobox" SelectionChanged="TypeAgentFilterCombobox_OnSelectionChanged">
+            <ComboBoxItem Content="ООО"/>
+            <ComboBoxItem Content="МФО"/>
+            <ComboBoxItem Content="ЗАО"/>
+            <ComboBoxItem Content="МКК"/>
+            <ComboBoxItem Content="ПАО"/>
+            <ComboBoxItem Content="ОАО"/>
+        </ComboBox>
+        <TextBox Width="200" x:Name="PriorityTextBox" Watermark="Priority"/>
+        <TextBox Width="200" x:Name="AddressTextBox" Watermark="Address"/>
+        <TextBox Width="200" x:Name="INNTextBox" Watermark="INN"/>
+        <TextBox Width="200" x:Name="KPPTextBox" Watermark="KPP"/>
+        <TextBox Width="200" x:Name="DirectorNameTextBox" Watermark="DirectorName"/>
+        <TextBox Width="200" x:Name="PhoneTextBox" Watermark="Phone"/>
+        <TextBox Width="200" x:Name="EmailTextBox" Watermark="Email"/>
+        <Image Width="60" Height="60" x:Name="LogoImage"/>
+        <Button Width="100" x:Name="SelectImageButton" Content="Select Image" Click="SelectImage"/>
+        <Button Width="100" x:Name="AddButton" Content="Save" Click="AddClick"/>
+    </StackPanel>
+</Window>

@@ -1,0 +1,83 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="Voroncov1.MainWindow"
+        x:CompileBindings="False"
+        Title="Voroncov2103">
+        <DockPanel>
+            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Background="Gray" Height="50" Spacing="15">
+                <TextBlock Text="какойто текст" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBox TextChanging="SearchTextBox_OnTextChanging" Width="200" x:Name="SearchTextBox"/>
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Text="Title"/>
+                    <ComboBox VerticalAlignment="Center" Width="100" x:Name="TitleAgentSortComboBox" SelectionChanged="TitleAgentSortComboBox_OnSelectionChanged">
+                        <ComboBoxItem Content="all"/>
+                        <ComboBoxItem Content="убывание"/>
+                        <ComboBoxItem Content="возрастание"/>
+                    </ComboBox>
+                </StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Text="Sale"/>
+                    <ComboBox VerticalAlignment="Center" Width="100" x:Name="SaleAgentSortComboBox" SelectionChanged="TitleAgentSortComboBox_OnSelectionChanged">
+                        <ComboBoxItem Content="all"/>
+                        <ComboBoxItem Content="убывание"/>
+                        <ComboBoxItem Content="возрастание"/>
+                    </ComboBox>
+                </StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Text="Priority"/>
+                    <ComboBox VerticalAlignment="Center" Width="100" x:Name="PriorityAgentSortComboBox" SelectionChanged="TitleAgentSortComboBox_OnSelectionChanged">
+                        <ComboBoxItem Content="all"/>
+                        <ComboBoxItem Content="убывание"/>
+                        <ComboBoxItem Content="возрастание"/>
+                    </ComboBox>
+                </StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Text="AgentType"/>
+                    <ComboBox VerticalAlignment="Center" Width="100" x:Name="TypeAgentFilterCombobox" SelectionChanged="TypeAgentFilterCombobox_OnSelectionChanged">
+                        <ComboBoxItem Content="Все"/>
+                        <ComboBoxItem Content="ООО"/>
+                        <ComboBoxItem Content="МФО"/>
+                        <ComboBoxItem Content="ЗАО"/>
+                        <ComboBoxItem Content="МКК"/>
+                        <ComboBoxItem Content="ПАО"/>
+                        <ComboBoxItem Content="ОАО"/>
+                    </ComboBox>
+                </StackPanel>
+                <Button Content="ADD" Click="AddAgent_OnClick" DockPanel.Dock="Right" Width="60" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+            </StackPanel>
+            <ListBox x:Name="ListBox" DockPanel.Dock="Top">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Border BorderBrush="Gray" BorderThickness="1" Padding="5">
+                            <Grid>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <Image Source="{Binding Image}" Width="100" Height="100" Margin="0,0,10,0" VerticalAlignment="Center" HorizontalAlignment="Left" Stretch="UniformToFill"/>
+                                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left">
+                                        <TextBlock Text="{Binding Id, StringFormat='Title: {0}'}" TextWrapping="Wrap" TextAlignment="Center" />
+                                        <TextBlock Text="{Binding Title, StringFormat='Title: {0}'}" TextWrapping="Wrap" TextAlignment="Center" />
+                                        <TextBlock Text="{Binding Year, StringFormat='Year: {0}'}" TextWrapping="Wrap" TextAlignment="Center" />
+                                        <TextBlock Text="{Binding countSales, StringFormat='countSales: {0}'}" TextWrapping="Wrap" TextAlignment="Center" />
+                                        <TextBlock Text="{Binding sale, StringFormat='sale: {0}'}" TextWrapping="Wrap" TextAlignment="Center" />
+                                        <TextBlock Text="{Binding totalSalesAmount, StringFormat='totalSalesAmount: {0}'}" TextWrapping="Wrap" TextAlignment="Center" />
+                                    </StackPanel>
+                                </StackPanel>
+                            </Grid>
+                            <Border.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Header="edit" Click="EditMenuItem_OnClick"/>
+                                    <MenuItem Header="priority" Click="PriorityMenuItem_OnClick"/>
+                                </ContextMenu>
+                            </Border.ContextMenu>
+                        </Border>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Stretch" Height="50" Background="Black" VerticalAlignment="Bottom">
+                <Button x:Name="PreviousButton" Content="Предыдущая" Click="PreviousPage" Margin="5" HorizontalAlignment="Center"/>
+                <Button x:Name="NextButton" Content="Следующая" Click="NextPage" Margin="5" HorizontalAlignment="Center"/>
+            </StackPanel>
+        </DockPanel>
+</Window>
